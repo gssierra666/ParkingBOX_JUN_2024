@@ -1,0 +1,215 @@
+<html><head> \m<title>Schema Report for database: PARKINGBOX</title> 
+<style>
+        td,th {
+        text-align:left;
+        vertical-align:middle;
+        }
+        table {
+        border-collapse: collapse;
+        border: 1px solid;
+        }
+        caption, th, td {
+        padding: .2em .8em;
+        border: 1px solid #000000;
+        }
+        caption {
+        background: #D3D3D3;
+        font-weight: bold;
+        font-size: 1.1em;
+        }
+        th {
+        font-weight: bold;
+        background: #000000;
+        color: white;
+        }
+        td {
+        background: #FFFFFF;
+        }
+        </style>
+      </head>
+     <body>
+<h1>Schema Report for database: PARKINGBOX</h1> 
+<a id="home">Table List </a><br /><ul> 
+ <li><a href="#VEHICULO">VEHICULO </a></li> 
+<li><a href="#TIPO_VEHICULO">TIPO_VEHICULO </a></li> 
+<li><a href="#TARIFA">TARIFA </a></li> 
+<li><a href="#PARQUEADERO">PARQUEADERO </a></li> 
+<li><a href="#FUNCIONARIO">FUNCIONARIO </a></li> 
+<li><a href="#BAHIA">BAHIA </a></li> 
+<li><a href="#REGISTRO">REGISTRO </a></li> 
+<li><a href="#GENERADORFAC">GENERADORFAC </a></li> 
+<li><a href="#ROL">ROL </a></li> 
+<li><a href="#FUNCIONARIO_has_ROL">FUNCIONARIO_has_ROL </a></li> 
+</ul> 
+<a id="VEHICULO"></a><table style="width:100%"><caption>Table: VEHICULO </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA VEHICULO. Creada para mantener la identificación unica por cada vehículo</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_placa</td><td>VARCHAR(10)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr> 
+<tr><td>descri_vh</td><td>TEXT(100)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Descripción vehículo</td></tr> 
+<tr><td>TIPO_VEHICULO_id_tipo_vh</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+<tr><td>TIPO_VEHICULO_TARIFA_id_tarifa</td><td>VARCHAR(5)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="TIPO_VEHICULO"></a><table style="width:100%"><caption>Table: TIPO_VEHICULO </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA TIPO DE VEHICULO. Creada para mantener la identificación de la gama del vehículo</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_tipo_vh</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Lave Foránea. Id del tipo de vehículo</td></tr> 
+<tr><td>nom_tipo_vh</td><td>VARCHAR(30)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Nombre del tipo de vehículo</td></tr> 
+<tr><td>TARIFA_id_tarifa</td><td>VARCHAR(5)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="TARIFA"></a><table style="width:100%"><caption>Table: TARIFA </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA TARIFA. Creada para mantener registro de la tarifa con respecto al tipo de vehículo</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_tarifa</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primaria. Id tarifa</td></tr> 
+<tr><td>minutos</td><td>INT(6)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Nombre de la tarifa asociada</td></tr> 
+<tr><td>mensualidad</td><td>INT(6)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>plena</td><td>INT(6)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>perdidatk</td><td>INT(6)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="PARQUEADERO"></a><table style="width:100%"><caption>Table: PARQUEADERO </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA PARQUEADERO. Creada para mantener registro de parqueaderos existentes por ciudad</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_parq</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primaria. Id parqueadero</td></tr> 
+<tr><td>nombre_parq</td><td>VARCHAR(100)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>dirección_parq</td><td>VARCHAR(200)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Dirección parqueadero</td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="FUNCIONARIO"></a><table style="width:100%"><caption>Table: FUNCIONARIO </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA FUNCIONARIO. Creada para mantener identificado a los trabajadores y jefes en el sistema</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_funcionario</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primária. Id Funcionario</td></tr> 
+<tr><td>nom_fun</td><td>VARCHAR(20)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Nombre del funcionario</td></tr> 
+<tr><td>apes_fun</td><td>VARCHAR(40)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Apellido primero del funcionario</td></tr> 
+<tr><td>correo</td><td>VARCHAR(200)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>contrasena</td><td>VARCHAR(250)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>PARQUEADERO_id_parq</td><td>VARCHAR(5)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="BAHIA"></a><table style="width:100%"><caption>Table: BAHIA </caption> 
+<tr><td>Table Comments</td><td colspan="6">Tabla para establecimiento de Bahias</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_bh</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primaria. Id tipo de Bahía</td></tr> 
+<tr><td>nom_tipo_bh</td><td>VARCHAR(30)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Nombre tipo de Bahía</td></tr> 
+<tr><td>cantidad_bh</td><td>INT(3)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>estado_bh</td><td>TINYINT</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+<tr><td>PARQUEADERO_id_parq</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="REGISTRO"></a><table style="width:100%"><caption>Table: REGISTRO </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA REGISTRO. Creada para mantener registro de ingreso y salida de vehículos respecto al tiempo de uso</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_registro</td><td>INT</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primaria. Registro de vehículos</td></tr> 
+<tr><td>fecha_entradayhora</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Fecha de ingreso del vehículo</td></tr> 
+<tr><td>fecha_salidayhora</td><td>DATETIME</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Fecha de salida del vehículo</td></tr> 
+<tr><td>VEHICULO_id_placa</td><td>VARCHAR(10)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+<tr><td>PARQUEADERO_id_parq</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+<tr><td>GENERADORFAC_id_num_factura</td><td>VARCHAR(10)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="GENERADORFAC"></a><table style="width:100%"><caption>Table: GENERADORFAC </caption> 
+<tr><td>Table Comments</td><td colspan="6">TABLA FACTURA. Creada para mantener corelación de la información asociada al documento de factura</td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_num_factura</td><td>VARCHAR(10)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td>Llave Primaria. Id de consecutivo factura</td></tr> 
+<tr><td>totalizado_tarifa</td><td>INT</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Hora de ingreso del vehículo</td></tr> 
+<tr><td>iva_aplicado</td><td>INT(2)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Hora de salida del vehículo</td></tr> 
+<tr><td>total_servicio</td><td>INT(8)</td><td>Yes</td><td>No</td><td>No</td><td></td><td>Resultado liquidación $</td></tr> 
+<tr><td>condiciones_ser</td><td>VARCHAR(300)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="ROL"></a><table style="width:100%"><caption>Table: ROL </caption> 
+<tr><td>Table Comments</td><td colspan="6"></td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>id_rol</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>No</td><td></td><td></td></tr> 
+<tr><td>nom_rol</td><td>VARCHAR(45)</td><td>Yes</td><td>No</td><td>No</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+<a id="FUNCIONARIO_has_ROL"></a><table style="width:100%"><caption>Table: FUNCIONARIO_has_ROL </caption> 
+<tr><td>Table Comments</td><td colspan="6"></td></tr> 
+<tr><td colspan="7">Columns</td></tr>
+        <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Not Null</th>
+        <th>PK</th>
+        <th>FK</th>
+        <th>Default</th>
+        <th>Comment</th>
+        </tr>
+ <tr><td>FUNCIONARIO_id_funcionario</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+<tr><td>ROL_id_rol</td><td>VARCHAR(6)</td><td>Yes</td><td>Yes</td><td>Yes</td><td></td><td></td></tr> 
+</table><a href="#home">Table List </a></br> 
+</body></html> 
